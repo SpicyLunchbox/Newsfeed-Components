@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'The Turbo Encabulator',
+    date: 'Beginning of Time',
+    firstParagraph: `Hullaballo Hullabalo Hullabalo`,
+
+    secondParagraph: `Test Test Test`,
+
+    thirdParagraph: `I am so tired`
   }
 ];
 
@@ -136,11 +145,11 @@ function articleMaker(article){
   newArticle.appendChild(expandButton);
 
   title.textContent = article.title;
-  date = article.date;
-  firstParagraph = article.firstParagraph;
-  secondParagraph = article.secondParagraph;
-  thirdParagraph = article.thirdParagraph;
-  expandButton = '+';
+  date.textContent = article.date;
+  firstParagraph.textContent = article.firstParagraph;
+  secondParagraph.textContent = article.secondParagraph;
+  thirdParagraph.textContent = article.thirdParagraph;
+  expandButton.textContent = '+';
 
   expandButton.addEventListener('click', () => {
   newArticle.classList.toggle('article-open')
@@ -148,3 +157,10 @@ function articleMaker(article){
 
   return newArticle;
 }
+
+const attach_point = document.querySelector('.articles');
+
+data.forEach(object => {
+  const created_article = articleMaker(object);
+  attach_point.appendChild(created_article);
+})
